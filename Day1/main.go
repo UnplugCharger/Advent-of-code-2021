@@ -7,6 +7,9 @@ import (
 )
 
 func main() {
+	all()
+}
+func depthCalc() {
 	input, err := aocutil.NewInputFromFile("session_id")
 	if err != nil {
 		log.Fatal(err)
@@ -26,5 +29,30 @@ func main() {
 		depth = data[i]
 	}
 	fmt.Println(count)
+}
+func depthCalcSlide() {
+	input, err := aocutil.NewInputFromFile("session_id")
+	if err != nil {
+		log.Fatal(err)
+	}
+	data, err := input.Ints(2021, 1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	depth := data[0] + data[1] + data[2]
 
+	count := 0
+	for i := 1; i < len(data)-2; i++ {
+		curDepth := data[i] + data[i+1] + data[i+2]
+		if curDepth > depth {
+			count++
+		}
+		depth = curDepth
+
+	}
+	fmt.Println(count)
+}
+func all() {
+	depthCalc()
+	depthCalcSlide()
 }
