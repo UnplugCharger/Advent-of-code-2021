@@ -8,12 +8,9 @@ import (
 	"strings"
 )
 
-func Byron(s string) string {
-	return s
-}
 func main() {
 	input, err := aocutil.NewInputFromFile("session_id")
-	Byron("Mahinya")
+
 	if err != nil {
 		log.Fatal(err)
 	}
