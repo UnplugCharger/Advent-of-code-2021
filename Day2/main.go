@@ -38,15 +38,17 @@ func main() {
 
 		h := 0
 		d := 0
+		aim := 0
 
 		for _, i := range instructions {
 			switch i.instructions {
 			case "forward":
 				h += i.value
+				d += i.value * aim
 			case "up":
-				d -= i.value
+				aim -= i.value
 			case "down":
-				d += i.value
+				aim += i.value
 			default:
 				log.Fatal(i)
 
